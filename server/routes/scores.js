@@ -12,29 +12,36 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST new score (update if higher)
+// POST new score (or update if the new score is higher)
 router.post("/", async (req, res) => {
   try {
     const { name, score } = req.body;
-    let player = await Score.findOne({ name });
 
-    if (!player) {
-      // First play
-      player = new Score({ name, score, plays: 1, date: new Date() });
-    } else if (player.plays < 3) {
-      // Only count if less than 3 plays
-      player.score = score; // always take last score
-      player.plays += 1;
-      player.date = new Date();
+    // Find if a player with this name already exists.
+    const existingPlayer = await Score.findOne({ name });
+
+    if (!existingPlayer) {
+      // If the player is new, create a new score entry for them.
+      const newScore = new Score({
+        name: name,
+        score: score,
+        date: new Date(),
+      });
+      await newScore.save();
+      // Send a 201 "Created" status with the new score data.
+      return res.status(201).json(newScore);
     } else {
-      // Already played 3 times
-      player.score = score; // update score to last play
-      player.date = new Date();
+      // If the player already exists, only update their score if the new one is higher.
+      if (score > existingPlayer.score) {
+        existingPlayer.score = score;
+        existingPlayer.date = new Date();
+        await existingPlayer.save();
+      }
+      // Return the player's latest data.
+      return res.status(200).json(existingPlayer);
     }
-
-    await player.save();
-    res.json(player);
   } catch (err) {
+    console.error("Error saving score:", err);
     res.status(500).json({ error: "Failed to save score" });
   }
 });

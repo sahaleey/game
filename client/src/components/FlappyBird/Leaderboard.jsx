@@ -18,7 +18,7 @@ function Leaderboard({ currentScore, currentPlayer }) {
 
   const loadHighScores = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/scores");
+      const res = await axios.get("https://game-xvje.onrender.com/api/scores");
 
       // Keep only the latest score per player
       const uniqueScores = Object.values(
@@ -38,7 +38,10 @@ function Leaderboard({ currentScore, currentPlayer }) {
 
   const saveScore = async (name, score) => {
     try {
-      await axios.post("http://localhost:5000/api/scores", { name, score });
+      await axios.post("https://game-xvje.onrender.com/api/scores", {
+        name,
+        score,
+      });
       loadHighScores();
     } catch (err) {
       console.error("❌ Failed to save score:", err);
