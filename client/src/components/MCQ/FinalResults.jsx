@@ -29,7 +29,7 @@ function FinalResults() {
     const saveScoreToServer = async () => {
       if (totalScore === 0 && playerName === "Player") return;
       try {
-        await axios.post("http://localhost:5000/api/scores", {
+        await axios.post("https://game-xvje.onrender.com/api/scores", {
           name: playerName,
           score: totalScore,
         });

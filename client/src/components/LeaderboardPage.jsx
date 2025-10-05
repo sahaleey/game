@@ -13,7 +13,9 @@ function LeaderboardPage() {
     const fetchLeaderboard = async () => {
       try {
         // Fetch scores from your backend API
-        const response = await axios.get("http://localhost:5000/api/scores");
+        const response = await axios.get(
+          "https://game-xvje.onrender.com/api/scores"
+        );
         setLeaderboard(response.data);
       } catch (err) {
         console.error("Failed to fetch leaderboard:", err);

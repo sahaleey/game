@@ -10,7 +10,9 @@ function HomePage() {
     // This function fetches the scores from your backend
     const fetchLeaderboard = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/scores");
+        const response = await axios.get(
+          "https://game-xvje.onrender.com/api/scores"
+        );
         setLeaderboard(response.data); // The backend already sorts the data
       } catch (error) {
         console.error("Could not fetch the leaderboard:", error);
