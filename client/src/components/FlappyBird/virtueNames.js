@@ -1,0 +1,36 @@
+// src/components/virtueNames.js
+
+const VIRTUE_NAMES = [
+  "ʿIlm",
+  "ʿIbādah",
+  "Tawbah",
+  "Ṣadaqah",
+  "Ṣabr",
+  "Shukr",
+  "Ikhlāṣ",
+  "Tawakkul",
+  "Adab",
+  "Taqwā",
+  "Ḥayā’",
+  "ʿAdl",
+  "Raḥmah",
+  "Ṣilatu’r-Raḥim",
+  "Dhikr",
+  "Duʿā’",
+  "ʿIffah",
+  "Qanāʿah",
+  "Amānah",
+  "ʿUkhūwah",
+  "Zuhd",
+  "Hilm",
+  "Sidq",
+  "ʿAdālah",
+  "Birr al-Wālidayn",
+  "Iḥsān",
+  "ʿAql",
+  "Ḥilm",
+  "Qurbah",
+  "Khushūʿ",
+];
+
+export default VIRTUE_NAMES;

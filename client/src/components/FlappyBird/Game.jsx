@@ -4,6 +4,7 @@ import axios from "axios";
 import Bird from "./Bird";
 import Pillar from "./Pillar";
 import Scoreboard from "./Scoreboard";
+import VIRTUE_NAMES from "./virtueNames"; // Adjust the path if needed
 
 // --- Constants ---
 const GAME_CONFIG = {
@@ -162,6 +163,10 @@ function Game({ playerName }) {
               GAME_CONFIG.PILLAR_GAP -
               100) +
           50;
+        const pillarIndex = Math.floor(
+          frameCountRef.current / GAME_CONFIG.PILLAR_FREQUENCY
+        );
+        const nameToShow = VIRTUE_NAMES[pillarIndex % VIRTUE_NAMES.length];
         setPillars((prev) => [
           ...prev,
           {
@@ -169,6 +174,7 @@ function Game({ playerName }) {
             x: GAME_DIMENSIONS.WIDTH,
             gapPosition: gapPos,
             passed: false,
+            name: nameToShow,
           },
         ]);
       }
