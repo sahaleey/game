@@ -34,7 +34,9 @@ function HomePage() {
       <div className="max-w-4xl mx-auto">
         {/* Welcome Section */}
         <div className="text-center bg-white p-8 rounded-2xl shadow-lg mb-10">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4">Game Hub</h1>
+          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+            ABHA Game Hub
+          </h1>
           <p className="text-xl text-gray-600 mb-8">
             Test your skills and climb the leaderboard!
           </p>
