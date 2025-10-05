@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const ScoreSchema = new mongoose.Schema({
   name: { type: String, required: true },
   score: { type: Number, required: true },
-  plays: { type: Number, default: 0 }, // New field
+  plays: { type: Number, default: 0 },
   date: { type: Date, default: Date.now },
 });
 

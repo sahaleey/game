@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Game from "./components/FlappyBird/Game"; // Make sure this path is correct
 import TicTacToe from "./components/TicTacToe/TicTacToe";
 import MCQQuiz from "./components/MCQ/MCQQuiz"; // 1. Import
-import FinalResults from "./components/MCQ/FinalResults"; // Make sure this path is correct
+import FinalResults from "./components/MCQ/FinalResults";
+import LeaderboardPage from "./components/LeaderboardPage";
+import HomePage from "./components/HomePage"; // Make sure this path is correct
 
 function App() {
   const [playerName, setPlayerName] = useState(
@@ -60,10 +62,12 @@ function App() {
       <div className="w-screen h-screen bg-gradient-to-b from-blue-400 to-blue-600 flex items-center justify-center overflow-hidden">
         <Routes>
           <Route path="/" element={<Game playerName={playerName} />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/tictactoe" element={<TicTacToe />} />
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/quiz" element={<MCQQuiz />} />
           <Route path="/results" element={<FinalResults />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
         </Routes>
       </div>
     </BrowserRouter>
