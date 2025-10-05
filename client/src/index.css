@@ -1,0 +1,45 @@
+@import "tailwindcss";
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Arial Rounded MT Bold", "Arial", sans-serif;
+}
+
+.game-container {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+}
+/* Add to existing index.css */
+@keyframes celebrate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-celebrate {
+  animation: celebrate 0.6s ease-in-out 3;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff0000;
+  animation: confetti 3s ease-in-out forwards;
+}
